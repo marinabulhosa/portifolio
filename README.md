@@ -2,7 +2,7 @@
 
 Meu portfólio profissional: quem sou, o que sei fazer e os projetos que já construí em desenvolvimento, dados e IA.
 
-**Acesse o site:** [https://marinabulhosa.github.io](https://marinabulhosa.github.io/portifolio/)
+**Acesse o site:** [https://marinabulhosa.github.io/portifolio/](https://marinabulhosa.github.io/portifolio/)
 
 ![Prévia do portfólio](img/preview.png) 
 

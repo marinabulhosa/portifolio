@@ -4,8 +4,7 @@ Meu portfólio profissional: quem sou, o que sei fazer e os projetos que já con
 
 **Acesse o site:** https://marinabulhosa.github.io
 
-<!-- Tire um print da página inicial, salve como img/preview.png e tire os sinais de comentário da linha abaixo -->
-<!-- ![Prévia do portfólio](img/preview.png) -->
+![Prévia do portfólio](img/preview.png) 
 
 ## Sobre mim
 

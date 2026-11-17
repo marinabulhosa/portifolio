@@ -1,10 +1,36 @@
 const GH = "https://github.com/marinabulhosa"; // seu perfil no GitHub; os links dos projetos usam este endereço
 const RM = matchMedia("(prefers-reduced-motion:reduce)").matches;
-const AREAS = { dados: "Dados", sistemas: "Sistemas", ia: "IA e automação" };
+const AREAS = { dados: "Dados", sistemas: "Sistemas", ia: "IA e Automação" };
 // d = resumo do card, p = problema, s = o que foi construído, f = destaque, r = nome do repositório
 const P = [
-    { a: "dados", f: 1, t: "Voz do Cliente", d: "Dashboard que transforma milhares de avaliações de restaurantes em decisões, com sentimento, categoria e plano de ação.", p: "Restaurantes recebem avaliações em texto demais para ler uma a uma e acabam sem enxergar o que mais pesa.", s: "Classificação por sentimento (positivo, neutro, negativo) e categoria (atraso, embalagem, sabor, preço), dashboard com filtros e gráficos e botão que gera o plano de ação.", g: ["Python", "IA", "Dashboard"], r: "(https://marinabulhosa.github.io/precificadorSabore/)" },
-    { a: "sistemas", t: "Precificação Saborê", d: "Site responsivo que calcula o preço de doces de confeitaria.", p: "Precificar à mão faz esquecer custos escondidos, como perda, mão de obra, luz e gás.", s: "Cadastro de ingredientes e embalagens com custo proporcional, o método da confeitaria explicado e um modo em que cada comércio escolhe como calcular.", g: ["HTML", "CSS", "JavaScript"], r: "precificacao-sabore" }
+    {
+        a: "dados",
+        f: 1,
+        t: "Voz do Cliente",
+        d: "Dashboard que transforma milhares de avaliações de restaurantes em decisões, com sentimento, categoria e plano de ação.",
+        p: "Restaurantes recebem avaliações em texto demais para ler uma a uma e acabam sem enxergar o que mais pesa.",
+        s: "Classificação por sentimento (positivo, neutro, negativo) e categoria (atraso, embalagem, sabor, preço), dashboard com filtros e gráficos e botão que gera o plano de ação.",
+        g: ["Python", "IA", "Dashboard"],
+        url: "https://github.com/marinabulhosa/VozDoCliente"
+    },
+    {
+        a: "sistemas",
+        t: "Precificador Saborê",
+        d: "Aplicação web responsiva para calcular preços de produtos de confeitaria.",
+        p: "Precificar manualmente pode fazer com que custos importantes, como perdas, mão de obra, energia e gás, sejam esquecidos.",
+        s: "Cadastro de ingredientes e embalagens com cálculo proporcional de custos, explicação do método de precificação e opções para diferentes formas de cálculo.",
+        g: ["HTML", "CSS", "JavaScript"],
+        url: "https://marinabulhosa.github.io/precificadorSabore/"
+    },
+    {
+        a: "ia",
+        t: "Radar de Vagas",
+        d: "Automação com n8n e IA que analisa alertas de vagas e identifica oportunidades alinhadas ao meu perfil.",
+        p: "Eu gastava horas abrindo alertas de vagas recebidos por e-mail, inclusive oportunidades que não tinham relação com minha formação, conhecimentos ou objetivos profissionais.",
+        s: "Automação que lê e-mails de alertas de vagas do LinkedIn, Gupy, Even e Vagas.com, avalia cada oportunidade com IA conforme meu perfil e envia avisos apenas sobre as vagas que combinam. O fluxo utiliza também Planilhas Google e um bot do Telegram.",
+        g: ["n8n", "API Gemini", "Gmail", "Planilhas Google", "Telegram", "JavaScript"],
+        url: "https://github.com/marinabulhosa/RadarVagas"
+    }
 ];
 const SK = [
     ["Programação", ["Python", "Java", "JavaScript", "SQL", "HTML 5", "CSS"]],
@@ -12,11 +38,18 @@ const SK = [
     ["Dados e bancos de dados", ["MySQL", "SQL", "pandas (estudando)", "Análise de dados operacionais", "Dashboards"]],
     ["IA e automação", ["Agentes de IA", "Geração de vídeo e conteúdo com IA", "Automação de tarefas", "Google Colab"]],
     ["Ferramentas e suporte", ["Git", "GitHub", "WordPress", "Active Directory", "Instalação e configuração de equipamentos", "Suporte técnico"]],
-    ["Conteúdo e design", ["Canva", "Premiere", "CapCut", "InShot", "Edição simples de vídeo e imagem"]]];
+    ["Conteúdo e design", ["Canva", "Premiere", "CapCut", "InShot", "Edição simples de vídeo e imagem"]]
+];
+
 const $ = id => document.getElementById(id);
 $("gh").href = GH;
-$("sg").innerHTML = SK.map(([t, v], i) => `<div class="c${i % 3}"><h3>${t}</h3><div class="chips">${v.map(x => `<span>${x}</span>`).join("")}</div></div>`).join("");
-$("stats").innerHTML = [[P.length, "", "projetos"], [4, "", "experiências práticas"], [164, "", "horas de cursos concluídos"], [3, "+", "anos de prática"]].map(([n, s, l]) => `<div><b data-n="${n}" data-s="${s}">${s}${n}</b><span>${l}</span></div>`).join("");
+
+$("sg").innerHTML = SK.map(([t, v], i) => 
+    `<div class="c${i % 3}"><h3>${t}</h3><div class="chips">${v.map(x => `<span>${x}</span>`
+).join("")}</div></div>`).join("");
+
+$("stats").innerHTML = [
+    [P.length, "", "projetos"], [4, "", "experiências práticas"], [164, "", "horas de cursos concluídos"], [3, "+", "anos de prática"]].map(([n, s, l]) => `<div><b data-n="${n}" data-s="${s}">${s}${n}</b><span>${l}</span></div>`).join("");
 
 // Projetos, filtro e caso detalhado
 const grid = $("grid"), bar = $("filters"), dlg = $("dlg");

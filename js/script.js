@@ -36,7 +36,7 @@ const SK = [
     ["Programação", ["Python", "Java", "JavaScript", "SQL", "HTML 5", "CSS"]],
     ["Web e mobile", ["Java Web", "Android (Android Studio)", "UX/UI", "Interfaces responsivas"]],
     ["Dados e bancos de dados", ["MySQL", "SQL", "pandas (estudando)", "Análise de dados operacionais", "Dashboards"]],
-    ["IA e automação", ["Agentes de IA", "Geração de vídeo e conteúdo com IA", "Automação de tarefas", "Google Colab"]],
+    ["IA e automação", ["n8n", "Agentes de IA", "Geração de vídeo e conteúdo com IA", "Automação de tarefas", "Google Colab"]],
     ["Ferramentas e suporte", ["Git", "GitHub", "WordPress", "Active Directory", "Instalação e configuração de equipamentos", "Suporte técnico"]],
     ["Conteúdo e design", ["Canva", "Premiere", "CapCut", "InShot", "Edição simples de vídeo e imagem"]]
 ];
@@ -56,7 +56,17 @@ const grid = $("grid"), bar = $("filters"), dlg = $("dlg");
 function render(f) {
     let k = 0;
     grid.innerHTML = P.map((p, i) => [p, i]).filter(([p]) => f === "todos" || p.a === f).map(([p, i]) =>
-        `<article class="card ${p.a}${p.f ? " feat" : ""}" style="--i:${k++}"><span class="ar">${AREAS[p.a]}</span><h3>${p.t}</h3><p>${p.d}</p><ul class="tags">${p.g.map(x => `<li>${x}</li>`).join("")}</ul><div class="acts"><button type="button" data-i="${i}">Ver caso</button><a href="${GH}/${p.r}">GitHub</a></div></article>`).join("");
+        <article class="card ${p.a}${p.f ? " feat" : ""}" style="--i:${k++}">
+            <span class="ar">${AREAS[p.a]}</span>
+            <h3>${p.t}</h3>
+            <p>${p.d}</p>
+            <ul class="tags">${p.g.map(x => `<li>${x}</li>`).join("")}</ul>
+            <div class="acts">
+                <button type="button" data-i="${i}">Ver caso</button>
+                <a href="${p.url}" target="_blank" rel="noopener noreferrer">Acessar projeto</a>
+            </div>
+        </article>`
+    ).join("");
 }
 bar.innerHTML = [["todos", "Todos"], ...Object.entries(AREAS)].map(([k, v]) => `<button type="button" data-f="${k}" aria-pressed="${k === "todos"}">${v}</button>`).join("");
 bar.onclick = e => { const b = e.target.closest("button"); if (!b) return; bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); render(b.dataset.f) };

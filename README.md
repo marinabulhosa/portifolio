@@ -1,4 +1,5 @@
 # Portfólio | Marina Bulhosa
+/verificando erros de redirecionamento do código/
 
 Meu portfólio profissional: quem sou, o que sei fazer e os projetos que já construí em desenvolvimento, dados e IA.
 

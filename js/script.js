@@ -1,7 +1,7 @@
-const GH = "https://github.com/marinabulhosa"; // seu perfil no GitHub; os links dos projetos usam este endereço
+const GH = "https://github.com/marinabulhosa"; 
 const RM = matchMedia("(prefers-reduced-motion:reduce)").matches;
 const AREAS = { dados: "Dados", sistemas: "Sistemas", ia: "IA e Automação" };
-// d = resumo do card, p = problema, s = o que foi construído, f = destaque, r = nome do repositório
+// d = resumo do card, p = problema, s = o que foi construído, f = destaque
 const P = [
     {
         a: "dados",
